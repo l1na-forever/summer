@@ -40,13 +40,13 @@ type MyService struct {
     MyDependency     string `summer:"StringDependency"`
     MyAutoDependency string `summer:",auto"`
 }
-service := new(MyService)
+service := &MyService{}
 
-container := NewContainer()
+container := summer.NewContainer()
 container.Add("injected value", "StringDependency")
 container.Add(service, "")
 
-ok := container.PerformInjections()
+err := container.PerformInjections()
 ```
 
 
@@ -57,7 +57,7 @@ Documentation can be found at [godoc.org/github.com/l1na-forever/summer](http://
 
 ## License
 
-Copyright © 2020 Lina 
+Copyright © 2020 Lina
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
